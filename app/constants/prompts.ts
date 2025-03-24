@@ -41,20 +41,36 @@ export function createSummaryPrompt(dialogue: string): string {
 }
 
 const ASSIGNED_TASKS_PROMPT = `
-Analyze the following dialogue to identify any assigned tasks. An assigned task is typically indicated by phrases where one person delegates an action to another person or team, often specifying what needs to be done and by whom. Highlight these assigned tasks, including any relevant details such as deadlines or specific instructions.
+The task is to analyze the entire conversation thread and identify all pizza toppings explicitly mentioned in the coversation.
+Do not invent or assume any toppings that are not directly mentioned in the thread. Group the toppings into logical categories (e.g, meats, vegetables, cheeses, etc.) based on their type.
+Follow this instructions carefully:
+    Carefully read the entire conversation thread.
+    Extract only the pizza toppings explicitly mentioned in the chat.
+    Group the toppings into categories (e.g., meats, vegetables, cheeses, etc.).
+    Do not add any toppings that are not explicitly mentioned in the thread.
+    Format the output clearly and concisely.
+   Example:
+   If the conversation thread includes:
+    "I love pepperoni and sausage on my pizza."
+    "Can we add mushrooms and olives?"
+    "Extra mozzarella, please!"
 
-Your task is to extract and present the assigned tasks clearly. For each assigned task, provide the following details:
-Task Title
-- Description
-- Assignee
-- Deadline (if mentioned)
+    The ouput should be strictly in this format:
+    **Extracted Toppings:**  
+- Pepperoni  
+- Sausage  
+- Mushrooms  
+- Olives  
+- Mozzarella  
 
-Strictly follow the output format and output nothing else.
-Only output assigned tasks if mentioned obviously in the dialogue. Be strict. If no obvious assign tasks are mentioned, simply output "No assigned task mentioned" and nothing else.
-
+**Grouped Toppings:**  
+- **Meats:** Pepperoni, Sausage  
+- **Vegetables:** Mushrooms, Olives  
+-
 Dialogue to analyze:
-{dialogue}
-`;
+{dialogue}`;
+
+
 
 export function createAssignedTasksPrompt(dialogue: string): string {
 	return ASSIGNED_TASKS_PROMPT.replace('{dialogue}', dialogue);

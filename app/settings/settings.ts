@@ -18,7 +18,7 @@ export const settings: ISetting[] = [
 	{
 		id: SettingEnum.AI_MODEL_API_URL,
 		type: SettingType.STRING,
-		packageValue: 'http://llama3-8b',
+		packageValue: 'http://llama3-8b.local:1234',
 		required: true,
 		public: false,
 		i18nLabel: 'Model API Host URL',
@@ -49,7 +49,7 @@ export const settings: ISetting[] = [
 		i18nDescription: 'Additional features to enable for the summary command',
 		type: SettingType.MULTI_SELECT,
 		values: [
-			{ key: 'assigned-tasks', i18nLabel: 'Assigned tasks' },
+			{ key: 'assigned-tasks', i18nLabel: 'Pizzatopping tasks' },
 			{ key: 'follow-up-questions', i18nLabel: 'Follow-up questions' },
 			{ key: 'participants-summary', i18nLabel: 'Participants summary' },
 			{ key: 'file-summary', i18nLabel: 'File summary' },

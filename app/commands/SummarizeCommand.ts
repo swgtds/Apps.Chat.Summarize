@@ -29,7 +29,7 @@ import {
 } from '../constants/dialogue';
 
 export class SummarizeCommand implements ISlashCommand {
-	public command = 'chat-summary';
+	public command = 'swgtds-chat-summary';
 	public i18nParamsExample =
 		'Summarize messages in a thread or channel [today|week|unread]';
 	public i18nDescription =

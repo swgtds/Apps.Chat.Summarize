@@ -1,7 +1,7 @@
 {
-    "url": "http://localhost:3000",
-    "username": "",
-    "password": "",
+    "url": "https://safe.dev.rocket.chat/",
+    "username": "${ROCKETCHAT_USER}",
+    "password": "${ROCKETCHAT_PASS}",
     "ignoredFiles": [
         "**/README.md",
         "**/package-lock.json",
